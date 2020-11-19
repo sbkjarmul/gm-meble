@@ -209,21 +209,40 @@ ol.carousel-indicators {
         img {
             height: 100%;
             transition: filter .4s, transform .8s;    
-         /* 2nd Version
+         /* 2nd Version*/
             filter: grayscale(80%);
-            filter: brightness(0.2); */
+            filter: brightness(0.2); 
             &:hover {
-                filter: grayscale(80%);
-                filter: brightness(.2);
-             /* filter: grayscale(0%);
-                filter: brightness(1);*/
+               /* filter: grayscale(80%);
+                filter: brightness(.2);*/
+           filter: grayscale(0%);
+                filter: brightness(1);
                 transform: scale(1.25);
             }
         }
-        /*transition: width .6s;
+        transition: width .6s;
         &:hover {
             width: 35%;
-        } 2nd Version */
+        } /*2nd Version */
+    }
+}
+
+.features {
+    color: white;
+ 
+    background-image: radial-gradient( circle farthest-corner at 71.6% 21.7%,  rgba(43, 43, 43, 0.98) 0%, rgba(0, 0, 0, 0.95) 100.2% ),
+    url('../img/texture2.jpg');
+   
+    background-size: cover;
+    
+    
+    i {
+        color: $secondColor;
+        font-size: 3rem;
+    }
+    p {
+        font-weight: 200;
+        color: $secondColor;
     }
 }
 
@@ -268,6 +287,9 @@ ol.carousel-indicators {
                     transform: translateY(-45%) scale(1.25);
                 }
             }
+            &:hover {
+                width: 100%;
+            } 
         }
     }
  }

@@ -259,10 +259,9 @@ ol.carousel-indicators li.active {
   height: 20vw;
   overflow: hidden;
   z-index: 1;
-  /*transition: width .6s;
-        &:hover {
-            width: 35%;
-        } 2nd Version */
+  -webkit-transition: width .6s;
+  transition: width .6s;
+  /*2nd Version */
 }
 
 .projects .project img {
@@ -271,20 +270,42 @@ ol.carousel-indicators li.active {
   transition: -webkit-filter .4s, -webkit-transform .8s;
   transition: filter .4s, transform .8s;
   transition: filter .4s, transform .8s, -webkit-filter .4s, -webkit-transform .8s;
-  /* 2nd Version
-            filter: grayscale(80%);
-            filter: brightness(0.2); */
-}
-
-.projects .project img:hover {
+  /* 2nd Version*/
   -webkit-filter: grayscale(80%);
           filter: grayscale(80%);
   -webkit-filter: brightness(0.2);
           filter: brightness(0.2);
-  /* filter: grayscale(0%);
-                filter: brightness(1);*/
+}
+
+.projects .project img:hover {
+  /* filter: grayscale(80%);
+                filter: brightness(.2);*/
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  -webkit-filter: brightness(1);
+          filter: brightness(1);
   -webkit-transform: scale(1.25);
           transform: scale(1.25);
+}
+
+.projects .project:hover {
+  width: 35%;
+}
+
+.features {
+  color: white;
+  background-image: radial-gradient(circle farthest-corner at 71.6% 21.7%, rgba(43, 43, 43, 0.98) 0%, rgba(0, 0, 0, 0.95) 100.2%), url("../img/texture2.jpg");
+  background-size: cover;
+}
+
+.features i {
+  color: #8f8f8f;
+  font-size: 3rem;
+}
+
+.features p {
+  font-weight: 200;
+  color: #8f8f8f;
 }
 
 /* MEDIA QUERIES */
@@ -328,6 +349,9 @@ ol.carousel-indicators li.active {
             filter: brightness(0.2);
     -webkit-transform: translateY(-45%) scale(1.25);
             transform: translateY(-45%) scale(1.25);
+  }
+  .projects .project:hover {
+    width: 100%;
   }
 }
 
