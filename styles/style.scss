@@ -153,9 +153,12 @@ ol.carousel-indicators {
         font-family: $headerFont;
         letter-spacing: $headerSpacing;
        font-size: 3rem;
+       text-shadow: 0 0 .5rem rgba(0, 0, 0, .3);
+       overflow: hidden;
    }
    p {
        font-weight: 200;
+       text-shadow: 0 0 1rem rgba(0, 0, 0, .3);
    }
    .btn-outline-light {
         border-radius:25px;
@@ -165,49 +168,50 @@ ol.carousel-indicators {
         letter-spacing: .1rem;
    }
 }
-
-.step {
-    &:nth-child(1) {
-        background: none;
-    }
-    padding: 1.5rem;
-    width: 350rem;
-    display: flex;
-    flex-direction: column;
-    .stepHeader {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        h3 {
-
-            font-family:  $headerFont;
-            letter-spacing: $headerSpacing;
+.steps {
+    .step {
+        &:nth-child(1) {
+            background: none;
         }
-            div{
-                font-size: 1.5rem;
-                i.fas {
-                    font-size: 1rem;
-                    margin-left: .25rem;
+        padding: 1.5rem;
+        width: 350rem;
+        display: flex;
+        flex-direction: column;
+        .stepHeader {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            h3 {
+    
+                font-family:  $headerFont;
+                letter-spacing: $headerSpacing;
+            }
+                div{
+                    font-size: 1.5rem;
+                    i.fas {
+                        font-size: 1rem;
+                        margin-left: .25rem;
+                    }
                 }
             }
+            h1 {
+                color: rgba(0, 0, 0, .1);
+            }
         }
-        h1 {
-            color: rgba(0, 0, 0, .1);
+        p {
+            font-weight: 200;
+            font-size: .9rem;
         }
-    }
-    p {
-        font-weight: 200;
-        font-size: .9rem;
-    }
-    a {
-        color: $secondColor;
-        &:hover {
-            color: $thirdColor;
-            text-decoration: none;
-        }
-        i.fas .fa-long-arrow-alt-right {
-            font-size: 15px;
-            text-align: center;
+        a {
+            color: $secondColor;
+            &:hover {
+                color: $thirdColor;
+                text-decoration: none;
+            }
+            i.fas .fa-long-arrow-alt-right {
+                font-size: 15px;
+                text-align: center;
+            }
         }
     }
     
@@ -222,9 +226,11 @@ ol.carousel-indicators {
     h1 {
         font-family:  $headerFont;
         letter-spacing: $headerSpacing;
+        text-shadow: 0 0 .8rem rgba(0, 0, 0, .5);
     }
     p {
         font-weight: 200;
+        text-shadow: 0 0 .5rem rgba(0, 0, 0, .5);
     }
     .fixed-wrap {
         clip: rect(0, auto, auto, 0)!important;
@@ -252,37 +258,39 @@ ol.carousel-indicators {
 }
 
 #projects {
-    padding-bottom: 3.5rem;
-    margin-bottom: 3.5rem;
     h1 {
         font-family:  $headerFont!important;
         letter-spacing: $headerSpacing;
     }
-    p {
-        line-height: 1.1rem;
-    }
-    .project {
-        width: 20vw;
-        height: 20vw;
-        overflow: hidden;
-        z-index: 1;
-        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
-        img {
-            height: 100%;
-            transition: filter .4s, transform .8s;    
-         /* 2nd Version*/
-                filter: grayscale(80%);
-                filter: brightness(0.4); 
-                &:hover {
-               /* filter: grayscale(80%);
-                filter: brightness(.2);*/
-                filter: grayscale(0%);
-                filter: brightness(1);
-                transform: scale(1.25);
-            }
+    .projects {
+        padding-bottom: 3.5rem;
+        margin-bottom: 3.5rem;
+        p {
+            line-height: 1.1rem;
         }
-        transition: width .6s;
-    }
+        .project {
+            width: 20vw;
+            height: 20vw;
+            overflow: hidden;
+            z-index: 1;
+            box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.15);
+            img {
+                height: 100%;
+                transition: filter .4s, transform .8s;    
+             /* 2nd Version*/
+                    filter: grayscale(80%);
+                    filter: brightness(0.4); 
+                    &:hover {
+                   /* filter: grayscale(80%);
+                    filter: brightness(.2);*/
+                    filter: grayscale(0%);
+                    filter: brightness(1);
+                    transform: scale(1.25);
+                }
+            }
+            transition: width .6s;
+        }
+    }        
 }
 
 .features {
@@ -290,10 +298,14 @@ ol.carousel-indicators {
     background-image: radial-gradient( circle farthest-corner at 71.6% 21.7%,  rgba(43, 43, 43, 0.98) 0%, rgba(0, 0, 0, 0.95) 100.2% ),
     url('../img/texture2.jpg');
     background-size: cover;
-    i {
-        color: $secondColor;
-        font-size: 2.5rem;
+    .icon-box {
+        min-width: 5rem;
+        i {
+            color: $secondColor;
+            font-size: 2.5rem;
+        }
     }
+   
     h5 {
         font-family:  $headerFont!important;
         letter-spacing: $headerSpacing;
@@ -337,11 +349,64 @@ footer {
 /* MEDIA QUERIES */
 
 @media (max-width: 575.98px) { 
-    
+    .fixed-background {
+        h1 {
+            font-size: 1.6rem!important;
+        }
+        p {
+            font-size: .6rem!important;
+        }
+        padding: 1rem;
+    }
+
+    #projects {
+        h1 {
+            font-size: 1.8rem!important;
+        }
+        p {
+            font-size: .7rem!important;
+        }
+    }
+
+    .features {
+        .icon-box {
+            display: none;
+            min-width: 5rem;
+            i {
+                font-size: 1.5rem;
+            }
+        }
+       
+        h5 {
+          
+        }
+        p {
+            font-size: .9rem;
+            padding-bottom: 1rem;
+        }
+    }
  }
 
 // Small devices (landscape phones, less than 768px)
 @media (max-width: 767.98px) { 
+
+    .navbar {
+        .container {
+            .navbar-brand {
+                padding:0!important;
+                img { 
+                    width: 4rem;
+                    margin-left: 0!important;
+                    &:nth-child(1) {
+                        display: none;
+                    }
+                    &:nth-child(2) {
+                        padding-bottom: .5rem;
+                    }
+                }
+            }
+        }
+    }
     .info {
         width: 20rem;
         top: 40%!important;
@@ -359,30 +424,49 @@ footer {
              display: none;
         }
     }
-    
-    .projects {
-        padding-bottom: 0;
-        margin-bottom: 0;
-        .project {
-            width: 100%;
-            height: 20vw;
-            img {
-                width: 100%;
-                height: auto;
-                transition: transform 1s;
-                transform: translateY(-45%);
-                &:hover {
-                    filter: grayscale(0%);
-                    filter: brightness(1);
-                    transform: translateY(-45%) scale(1.25);
-                }
-            }
-            &:hover {
-                width: 100%;
-            } 
+
+    .fixed-background {
+        h1 {
+            font-size: 2.3rem;
+        }
+        p {
+            font-size: .8rem;
         }
     }
 
+    .steps {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #projects {
+        h1 {
+            font-family:  $headerFont!important;
+            letter-spacing: $headerSpacing;
+        }
+        .projects {
+            padding-bottom: 0;
+            margin-bottom: 0;
+            .project {
+                width: 100%;
+                height: 20vw;
+                img {
+                    width: 100%;
+                    height: auto;
+                    transition: transform 1s;
+                    transform: translateY(-45%);
+                    &:hover {
+                        filter: grayscale(0%);
+                        filter: brightness(1);
+                        transform: translateY(-45%) scale(1.25);
+                    }
+                }
+                &:hover {
+                    width: 100%;
+                } 
+            }
+        }
+    }
     .features {
         margin-top: 0!important;
     }
@@ -390,8 +474,7 @@ footer {
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 
-
-
+    
 
     .info {
         top: 35%;
